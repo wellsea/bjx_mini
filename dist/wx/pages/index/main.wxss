@@ -1,0 +1,47 @@
+@import "../../common/vendor.wxss";
+
+.userinfo.data-v-063fb0eb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar.data-v-063fb0eb {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname.data-v-063fb0eb {
+  color: #aaa;
+}
+.usermotto.data-v-063fb0eb {
+  margin-top: 300rpx;
+}
+.form-control.data-v-063fb0eb {
+  display: block;
+  padding: 0 24rpx;
+  margin-bottom: 10rpx;
+  border: 2rpx solid #ccc;
+}
+.all.data-v-063fb0eb {
+  width: 750rpx;
+  height: 100rpx;
+  background-color: blue;
+}
+.all.data-v-063fb0eb:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+.left.data-v-063fb0eb {
+  float: left;
+  width: 300rpx;
+  height: 100rpx;
+  background-color: red;
+}
+.right.data-v-063fb0eb {
+  float: left;
+  width: 450rpx;
+  height: 100rpx;
+  background-color: green;
+}
