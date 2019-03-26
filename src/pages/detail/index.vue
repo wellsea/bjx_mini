@@ -1,10 +1,6 @@
 <template>
   <div class="counter-warp">
-    <p>Vuex counter：{{ count }}</p>
-    <p>
-      <button @click="increment">+</button>
-      <button @click="decrement">-</button>
-    </p>
+   详情id： {{id}}
   </div>
 </template>
 
@@ -13,6 +9,11 @@
 import store from './store'
 
 export default {
+  data () {
+    return {
+      id: ''
+    }
+  },
   computed: {
     count () {
       return store.state.count
@@ -25,6 +26,9 @@ export default {
     decrement () {
       store.commit('decrement')
     }
+  },
+  mounted () {
+    this.id = this.$mp.query.id
   }
 }
 </script>

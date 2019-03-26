@@ -1,15 +1,15 @@
 require("../../common/manifest.js")
 require("../../common/vendor.js")
-global.webpackJsonpMpvue([4],{
+global.webpackJsonpMpvue([5],{
 
-/***/ 28:
+/***/ 94:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(95);
 
 
 
@@ -25,18 +25,18 @@ app.$mount();
 
 /***/ }),
 
-/***/ 29:
+/***/ 95:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_063fb0eb_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_063fb0eb_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(98);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(30)
+  __webpack_require__(96)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 
 /* template */
@@ -79,17 +79,73 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 30:
+/***/ 96:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 31:
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -121,14 +177,22 @@ if (false) {(function () {
         var data = res.resData;
         _this.domain = data.qiniuDomain;
         _this.banner = data.bannerList;
-        console.log(_this.domain);
       });
     },
     getInvest: function getInvest() {
-      this.$http.getInvest().then(function (res) {});
+      var _this2 = this;
+
+      this.$http.getInvest().then(function (res) {
+        _this2.invest = res.resData;
+      });
     },
     getStatic: function getStatic() {
-      this.$http.getStatic().then(function (res) {});
+      var _this3 = this;
+
+      this.$http.getStatic().then(function (res) {
+        var data = res.resData;
+        _this3.staticData = data;
+      });
     },
     getAll: function getAll() {
       this.getBanner();
@@ -144,17 +208,25 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 32:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "index"
-  }, [(_vm.banner.length > 0) ? _c('swiper', {
+    staticClass: "home"
+  }, [_c('swiper', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.banner.length > 0),
+      expression: "banner.length > 0"
+    }],
     attrs: {
-      "indidator-dots": "banner.length > 1",
-      "indicator-color": "#ff6600"
+      "indicator-color": "#f00",
+      "indidator-dots": "",
+      "autoplay": "",
+      "circular": ""
     }
   }, _vm._l((_vm.banner), function(item, index) {
     return _c('block', {
@@ -170,7 +242,74 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "mode": "scaleToFill"
       }
     })])], 1)
-  })) : _vm._e()], 1)
+  })), _vm._v(" "), _c('div', {
+    staticClass: "flex tac paddingVer-15"
+  }, [_c('div', {
+    staticClass: "item"
+  }, [_c('p', [_vm._v("累计出借金额(元)")]), _vm._v(" "), _c('b', {
+    staticClass: "main-color"
+  }, [_vm._v(_vm._s(_vm.staticData.sumInvestmentAmount))])], 1), _vm._v(" "), _c('div', {
+    staticClass: "item"
+  }, [_c('p', [_vm._v("累计为用户赚取(元)")]), _vm._v(" "), _c('b', {
+    staticClass: "main-color"
+  }, [_vm._v(_vm._s(_vm.staticData.sumInterestAmount))])], 1), _vm._v(" "), _c('div', {
+    staticClass: "item"
+  }, [_c('p', [_vm._v("总待收本息(元)")]), _vm._v(" "), _c('b', {
+    staticClass: "main-color"
+  }, [_vm._v(_vm._s(_vm.staticData.inRepaymentMoney))])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "invest tac"
+  }, _vm._l((_vm.invest), function(item, index) {
+    return (index < 2) ? _c('div', {
+      key: index,
+      staticClass: "list"
+    }, [_c('h1', {
+      staticClass: "bdb"
+    }, [_vm._v(_vm._s(item.categoryName ? item.categoryName : '精选标') + " -【" + _vm._s(item.name) + "】")]), _vm._v(" "), _c('div', [_c('p', {
+      staticClass: "color-999"
+    }, [_vm._v("历史年化收益")]), _vm._v(" "), _c('strong', {
+      staticClass: "main-color"
+    }, [_vm._v(_vm._s(item.rateYear) + "%")]), _vm._v(" "), _c('p', {
+      staticClass: "main-color"
+    }, [_vm._v(_vm._s(item.creditRatingName))]), _vm._v(" "), _c('div', {
+      staticClass: "progress"
+    }, [_c('progress', {
+      attrs: {
+        "percent": item.progressPercentage,
+        "color": "#FF4C3E",
+        "stroke-width": "12",
+        "active": "",
+        "border-radius": "20rpx"
+      }
+    })], 1), _vm._v(" "), _c('div', {
+      staticClass: "flex marginVer-15"
+    }, [_c('div', {
+      staticClass: "item"
+    }, [_c('icon', {
+      attrs: {
+        "type": "waiting",
+        "size": "26rpx",
+        "color": "#FF4C3E"
+      }
+    }), _vm._v("\n            出借期限 " + _vm._s(item.timeLimit) + "月\n          ")], 1), _vm._v(" "), _c('div', {
+      staticClass: "item"
+    }, [_c('icon', {
+      attrs: {
+        "type": "waiting",
+        "size": "26rpx",
+        "color": "#FF4C3E"
+      }
+    }), _vm._v("\n            剩余金额 " + _vm._s(item.amountInvestable) + "元\n          ")], 1)])], 1), _vm._v(" "), _c('div', {
+      staticClass: "padding-15"
+    }, [_c('navigator', {
+      attrs: {
+        "url": '../detail/main?id=' + item.id
+      }
+    }, [_c('button', {
+      attrs: {
+        "type": "warn"
+      }
+    }, [_vm._v("\n            立即投资\n          ")])], 1)], 1)], 1) : _vm._e()
+  }))], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -185,4 +324,4 @@ if (false) {
 
 /***/ })
 
-},[28]);
+},[94]);

@@ -1,20 +1,22 @@
 {
   "pages": [
     "pages/index/main",
-    "pages/logs/main",
-    "pages/counter/main",
-    "pages/borrow/main"
+    "pages/invest/main",
+    "pages/borrow/main",
+    "pages/user/main",
+    "pages/detail/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ffaf32",
+    "navigationBarBackgroundColor": "#FF4C3E",
     "navigationBarTitleText": "北极熊链盟",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#999",
     "backgroundColor": "#fafafa",
-    "selectedColor": "#333",
+    "selectedColor": "#FF4C3E",
     "borderStyle": "white",
 
     "list": [{
@@ -24,31 +26,19 @@
       "selectedIconPath": "static/tabs/home-active.png"
     }, {
       "text": "出借",
+      "pagePath": "pages/invest/main",
+      "iconPath": "static/tabs/invest.png",
+      "selectedIconPath": "static/tabs/invest-active.png"
+    }, {
+      "text": "借款",
       "pagePath": "pages/borrow/main",
-      "iconPath": "static/tabs/orders.png",
-      "selectedIconPath": "static/tabs/orders-active.png"
+      "iconPath": "static/tabs/borrow.png",
+      "selectedIconPath": "static/tabs/borrow-active.png"
     }, {
-      "text": "订单",
-      "pagePath": "pages/logs/main",
-      "iconPath": "static/tabs/orders.png",
-      "selectedIconPath": "static/tabs/orders-active.png"
-    }],
-
-    "items": [{
-      "name": "首页",
-      "pagePath": "pages/index/main",
-      "icon": "static/tabs/home.png",
-      "activeIcon": "static/tabs/home-active.png"
-    }, {
-      "text": "出借",
-      "pagePath": "pages/borrow/main",
-      "iconPath": "static/tabs/orders.png",
-      "selectedIconPath": "static/tabs/orders-active.png"
-    }, {
-      "name": "订单",
-      "pagePath": "pages/logs/main",
-      "icon": "static/tabs/orders.png",
-      "activeIcon": "static/tabs/orders-active.png"
+      "text": "我的",
+      "pagePath": "pages/user/main",
+      "iconPath": "static/tabs/user.png",
+      "selectedIconPath": "static/tabs/user-active.png"
     }],
     "position": "bottom"
   }

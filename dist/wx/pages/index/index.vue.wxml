@@ -1,11 +1,47 @@
 <template name="13fae44c">
-  <view class="_div data-v-063fb0eb index">
-    <swiper wx:if="{{banner.length > 0}}" indidator-dots="banner.length > 1" indicator-color="#ff6600" class="_swiper data-v-063fb0eb">
+  <view class="_div data-v-063fb0eb home">
+    <swiper hidden="{{!(banner.length > 0)}}" indicator-color="#f00" indidator-dots autoplay circular class="_swiper data-v-063fb0eb">
       <block wx:key="index" key="{{index}}" wx:for="{{banner}}" wx:for-index="index" wx:for-item="item">
         <swiper-item class="_swiper-item data-v-063fb0eb imgBox">
           <image src="{{domain+item.imageUrl}}" mode="scaleToFill" class="_image data-v-063fb0eb"></image>
         </swiper-item>
       </block>
     </swiper>
+    <view class="_div data-v-063fb0eb flex tac paddingVer-15">
+      <view class="_div data-v-063fb0eb item">
+        <view class="_p data-v-063fb0eb">累计出借金额(元)</view>
+        <view class="_b data-v-063fb0eb main-color">{{staticData.sumInvestmentAmount}}</view>
+      </view>
+      <view class="_div data-v-063fb0eb item">
+        <view class="_p data-v-063fb0eb">累计为用户赚取(元)</view>
+        <view class="_b data-v-063fb0eb main-color">{{staticData.sumInterestAmount}}</view>
+      </view>
+      <view class="_div data-v-063fb0eb item">
+        <view class="_p data-v-063fb0eb">总待收本息(元)</view>
+        <view class="_b data-v-063fb0eb main-color">{{staticData.inRepaymentMoney}}</view>
+      </view>
+    </view>
+    <view class="_div data-v-063fb0eb invest tac">
+      <view class="_div data-v-063fb0eb list" wx:key="index" key="{{index}}" wx:if="{{index<2}}" wx:for="{{invest}}" wx:for-index="index" wx:for-item="item">
+        <view class="_h1 data-v-063fb0eb bdb">{{item.categoryName?item.categoryName:'精选标'}} -【{{item.name}}】</view>
+        <view class="_div data-v-063fb0eb">
+          <view class="_p data-v-063fb0eb color-999">历史年化收益</view>
+          <view class="_strong data-v-063fb0eb main-color">{{item.rateYear}}%</view>
+          <view class="_p data-v-063fb0eb main-color">{{item.creditRatingName}}</view>
+          <view class="_div data-v-063fb0eb progress"><progress percent="{{item.progressPercentage}}" color="#FF4C3E" stroke-width="12" active border-radius="20rpx" class="_progress data-v-063fb0eb" /></view>
+          <view class="_div data-v-063fb0eb flex marginVer-15">
+            <view class="_div data-v-063fb0eb item">
+              <icon type="waiting" size="26rpx" color="#FF4C3E" class="_icon data-v-063fb0eb"></icon> 出借期限 {{item.timeLimit}}月
+            </view>
+            <view class="_div data-v-063fb0eb item">
+              <icon type="waiting" size="26rpx" color="#FF4C3E" class="_icon data-v-063fb0eb"></icon> 剩余金额 {{item.amountInvestable}}元
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-063fb0eb padding-15">
+          <navigator url="{{'../detail/main?id=' + item.id}}" class="_navigator data-v-063fb0eb"><button type="warn" class="_button data-v-063fb0eb"> 立即投资 </button></navigator>
+        </view>
+      </view>
+    </view>
   </view>
 </template>

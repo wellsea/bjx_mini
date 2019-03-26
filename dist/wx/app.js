@@ -1,20 +1,16 @@
 require("./common/manifest.js")
 require("./common/vendor.js")
-global.webpackJsonpMpvue([2],[
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */
+global.webpackJsonpMpvue([3],{
+
+/***/ 39:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_api__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_api__ = __webpack_require__(45);
 
 
 
@@ -26,17 +22,18 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MOD
 app.$mount();
 
 /***/ }),
-/* 6 */
+
+/***/ 41:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(44);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(7)
+  __webpack_require__(42)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 
 /* template */
@@ -77,13 +74,15 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 7 */
+
+/***/ 42:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 8 */
+
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -119,11 +118,12 @@ if (false) {(function () {
 });
 
 /***/ }),
-/* 9 */
+
+/***/ 45:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(46);
 
 // baseUrl: isPro ? 'http://test.wap.bjxcaifu.com/' : 'api/' // test
 // baseUrl: isPro ? 'http://uat.wap.bjxcaifu.com/' : 'api/' //uat
@@ -140,11 +140,17 @@ var http = function http(method, url) {
     data: data,
     method: method,
     header: {
-      'content-type': 'application/json'
+      'content-type': method === 'get' ? 'application/json' : 'application/x-www-form-urlencoded'
     }
   });
 };
-
+var json2Form = function json2Form(json) {
+  var str = [];
+  for (var p in json) {
+    str.push(encodeURIComponent(p) + '=' + encodeURIComponent(json[p]));
+  }
+  return str.join('&');
+};
 var api = {
   getBanner: function getBanner(params) {
     return http('post', 'home/home/homePage', params);
@@ -154,16 +160,23 @@ var api = {
   },
   getStatic: function getStatic(params) {
     return http('get', 'borrow/statistics/count', params);
+  },
+  getInvestList: function getInvestList(params) {
+    return http('post', 'invest/investments/investList', json2Form(params));
+  },
+  getBondList: function getBondList(params) {
+    return http('post', 'invest/bonds/bondList', json2Form(params));
   }
 };
 /* harmony default export */ __webpack_exports__["a"] = (api);
 
 /***/ }),
-/* 10 */
+
+/***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
 
 function httpsPromisify(fn) {
@@ -190,4 +203,5 @@ function httpsPromisify(fn) {
 /* harmony default export */ __webpack_exports__["a"] = (httpsPromisify);
 
 /***/ })
-],[5]);
+
+},[39]);

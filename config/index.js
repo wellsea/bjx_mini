@@ -58,14 +58,11 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api/**': {
-        target: 'https://www.bjxcaifu.com/weChat/'
-      },
-      pathRewrite: {
-        'http://localhost:8080/': 'https://www.bjxcaifu.com/weChat/' // => 后面这个是你后台服务器api地址
-      },
-      changeOrigin: true,
-      pathRewrite:{
-        '^/api':'/'
+        target: 'https://www.bjxcaifu.com',
+        changeOrigin: true,
+        pathRewrite:{
+          '^/api':'/'
+        }
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

@@ -12,14 +12,22 @@ const http = (method, url, data = {}) => {
     data: data,
     method: method,
     header: {
-      'content-type': 'application/json'
+      'content-type': method === 'get' ? 'application/json' : 'application/x-www-form-urlencoded'
     }
   })
 }
-
+const json2Form = function (json) {
+  var str = []
+  for (let p in json) {
+    str.push(encodeURIComponent(p) + '=' + encodeURIComponent(json[p]))
+  }
+  return str.join('&')
+}
 const api = {
   getBanner: params => http('post', 'home/home/homePage', params),
   getInvest: params => http('post', 'home/home/borrowIndexList', params),
-  getStatic: params => http('get', 'borrow/statistics/count', params)
+  getStatic: params => http('get', 'borrow/statistics/count', params),
+  getInvestList: params => http('post', 'invest/investments/investList', json2Form(params)),
+  getBondList: params => http('post', 'invest/bonds/bondList', json2Form(params))
 }
 export default api
