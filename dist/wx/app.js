@@ -1,37 +1,40 @@
 require("./common/manifest.js")
 require("./common/vendor.js")
-global.webpackJsonpMpvue([4],[
+global.webpackJsonpMpvue([2],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_api__ = __webpack_require__(9);
+
 
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.productionTip = false;
 __WEBPACK_IMPORTED_MODULE_1__App__["a" /* default */].mpType = 'app';
-
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$http = __WEBPACK_IMPORTED_MODULE_2__utils_api__["a" /* default */];
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__App__["a" /* default */]);
 app.$mount();
 
 /***/ }),
-/* 4 */,
-/* 5 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(8);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(6)
+  __webpack_require__(7)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -74,13 +77,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -115,5 +118,76 @@ if (false) {(function () {
   }
 });
 
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(10);
+
+// baseUrl: isPro ? 'http://test.wap.bjxcaifu.com/' : 'api/' // test
+// baseUrl: isPro ? 'http://uat.wap.bjxcaifu.com/' : 'api/' //uat
+// baseUrl: isPro ? 'https://www.bjxcaifu.com/weChat/' : 'api/' //pro
+var root = 'https://www.bjxcaifu.com/weChat/';
+
+var getRequest = Object(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */])(wx.request);
+
+var http = function http(method, url) {
+  var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+  return getRequest({
+    url: root + url,
+    data: data,
+    method: method,
+    header: {
+      'content-type': 'application/json'
+    }
+  });
+};
+
+var api = {
+  getBanner: function getBanner(params) {
+    return http('post', 'home/home/homePage', params);
+  },
+  getInvest: function getInvest(params) {
+    return http('post', 'home/home/borrowIndexList', params);
+  },
+  getStatic: function getStatic(params) {
+    return http('get', 'borrow/statistics/count', params);
+  }
+};
+/* harmony default export */ __webpack_exports__["a"] = (api);
+
+/***/ }),
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
+
+function httpsPromisify(fn) {
+  wx.showLoading({
+    title: '加载中'
+  });
+  return function () {
+    var obj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+      obj.success = function (res) {
+        resolve(res.data);
+        wx.hideLoading();
+      };
+      obj.fail = function (res) {
+        reject(res);
+        wx.hideLoading();
+      };
+      fn(obj);
+    });
+  };
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (httpsPromisify);
+
 /***/ })
-],[3]);
+],[5]);
